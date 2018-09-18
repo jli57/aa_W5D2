@@ -17,7 +17,15 @@ class Post < ApplicationRecord
   validates :title, presence: true 
   validate :valid_content
   
-  belongs_to :sub
+  belongs_to :original_sub,
+    foreign_key: :sub_id,
+    class_name: :Sub
+  
+  has_many :subs,
+    foreign_key: :sub_id,
+    class_name: :PostSub, 
+    dependent: :destroy 
+
   belongs_to :author, 
     foreign_key: :author_id, 
     class_name: :User
