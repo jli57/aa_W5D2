@@ -25,9 +25,7 @@
     <%= auth_token %>
     <input type="hidden" name="_method" value="patch">
     <label for="">Comment<br>
-      <textarea name="comment[content]" rows="8" cols="80">
-        <%= comment.content %>
-      </textarea>
+      <textarea name="comment[content]" rows="8" cols="80"><%= comment.content %></textarea>
     </label>
     <input type="submit" name="" value="Save Edits">
     <a href="<%=post_url(comment.post)%>">Cancel</a>
@@ -37,8 +35,7 @@
       action="<%=post_comments_url(comment.post)%>" method="post">
     <%= auth_token %>
     <label for="">Comment<br>
-      <textarea name="comment[content]" rows="8" cols="80">
-      </textarea>
+      <textarea name="comment[content]" rows="8" cols="80"></textarea>
     </label>
     <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
     <input type="submit" name="" value="Save Edits">
