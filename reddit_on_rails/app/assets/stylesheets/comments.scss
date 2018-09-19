@@ -1,0 +1,51 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// body {
+//   list-style: inherit; 
+// }
+
+.edit-comment-form, .reply-comment-form {
+  display: none;
+}
+
+.comment {
+  border: 1px solid black; 
+  margin: 5px 5px 10px 5px; 
+  padding: 5px; 
+  width: 700px; 
+}
+
+.no-list-style {
+  list-style: none; 
+}
+
+.comment-meta-info {
+  font-size: 12px; 
+}
+
+.comment-contents, .reply-comment-form, .edit-comment-form {
+  padding: 5px; 
+}
+// .edit-comment-button {
+//   color: red; 
+// }\
+
+.bold {
+  font-weight: bold; 
+}
+
+.delete-comment-button{
+  display: inline;
+}
+
+.content {
+  border: 1px solid #C0C0C0; 
+  padding: 15px; 
+  margin: 5px; 
+}
+
+.author {
+  padding-left: 5px; 
+  padding-bottom: 2px;
+}

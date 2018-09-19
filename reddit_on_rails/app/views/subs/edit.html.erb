@@ -1,2 +1,10 @@
-<h1>Subs#edit</h1>
-<p>Find me in app/views/subs/edit.html.erb</p>
+<h1>Edit a sub</h1>
+
+<form class="" action="<%= subs_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= render "form", sub: @sub %>
+  <input type="hidden" name="sub[moderator_id]" value="<%= @sub.moderator_id %>">
+  <input type="submit" value="Edit Sub">
+</form>
+
+<a href="<%= subs_url %>">Back to Index</a>

@@ -1,0 +1,21 @@
+I"Ü(function() {
+  var toggle;
+
+  toggle = true;
+
+  $(function() {
+    if (toggle) {
+      $('.edit-comment-button').click(function() {
+        return $('.edit-comment-form').css('display', 'block');
+      }).css('display', 'none');
+      return toggle = false;
+    } else {
+      $('.edit-comment-button').click(function() {
+        return $('.edit-comment-form').css('display', 'none');
+      }).css('display', 'block');
+      return toggle = true;
+    }
+  });
+
+}).call(this);
+:ET

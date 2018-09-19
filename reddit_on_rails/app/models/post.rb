@@ -21,18 +21,18 @@ class Post < ApplicationRecord
     foreign_key: :sub_id,
     class_name: :Sub
   
-  has_many :subs,
-    foreign_key: :sub_id,
-    class_name: :PostSub, 
-    dependent: :destroy 
+  has_many :post_subs, dependent: :destroy, inverse_of: :post
+  has_many :subs, through: :post_subs
 
   belongs_to :author, 
     foreign_key: :author_id, 
     class_name: :User
+    
+  has_many :comments 
   
   def valid_content
-    if (self.url && self.content) || (!self.url && !self.content)
-      self.errors << "invalid content"
+    if (self.url == "" && self.content == "" ) || ( self.url != "" && self.content != "")
+      self.errors[:url] << "Invalid content"
     end
   end
   

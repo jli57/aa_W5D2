@@ -1,2 +1,8 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit Post</h1>
+
+<form class="" action="<%= post_url(@post) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= render 'form', post: @post, subs: @subs %>
+  <input type="hidden" name="post[author_id]" value="<%= @post.author_id %>">
+  <input type="submit" name="" value="Edit Post">
+</form>

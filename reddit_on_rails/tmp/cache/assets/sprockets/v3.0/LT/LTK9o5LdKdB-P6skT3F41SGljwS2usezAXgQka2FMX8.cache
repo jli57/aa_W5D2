@@ -1,0 +1,7 @@
+I"S(function() {
+  (function() {
+    return alert("asdf");
+  });
+
+}).call(this);
+:ET

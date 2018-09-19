@@ -1,0 +1,47 @@
+<div class="comment" id = "comment-<%=comment.id%>">
+  <div class="comment-contents" id="<%="comment-contents-#{comment.id}"%>">
+    <div class="bold author"><%= comment.author.username %> wrote: </div>
+    <div class="content"><%= comment.content %>  </div>
+    <button class="reply-comment-button" 
+      id="<%=comment.id%>" 
+      type="button" name="button">Reply</button>
+    <% if current_user.id == comment.author_id %>
+      <button class="edit-comment-button" 
+        id="<%=comment.id%>"
+        type="button" name="button">Edit</button>
+      <form class="delete-comment-button" action="<%=comment_url(comment)%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= auth_token %>
+        <input type="submit" name="" value="Delete">
+      </form>
+    <% end %>
+    <div class="comment-meta-info">
+      <p>Created At: <%= comment.created_at %> Updated At: <%= comment.updated_at %></p> 
+    </div>
+  </div>
+  <form class="edit-comment-form"  
+      id="<%="edit-comment-form-#{comment.id}"%>" 
+      action="<%=comment_url(comment)%>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="patch">
+    <label for="">Comment<br>
+      <textarea name="comment[content]" rows="8" cols="80">
+        <%= comment.content %>
+      </textarea>
+    </label>
+    <input type="submit" name="" value="Save Edits">
+    <a href="<%=post_url(comment.post)%>">Cancel</a>
+  </form>
+  <form class="reply-comment-form" 
+      id="<%="reply-comment-form-#{comment.id}"%>" 
+      action="<%=post_comments_url(comment.post)%>" method="post">
+    <%= auth_token %>
+    <label for="">Comment<br>
+      <textarea name="comment[content]" rows="8" cols="80">
+      </textarea>
+    </label>
+    <input type="hidden" name="comment[parent_comment_id]" value="<%= comment.id %>">
+    <input type="submit" name="" value="Save Edits">
+    <a href="<%=post_url(comment.post)%>">Cancel</a>
+  </form>
+</div>

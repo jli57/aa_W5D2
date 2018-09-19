@@ -1,0 +1,5 @@
+I"U(function() {
+  $('.edit_comment_form').css('display', 'none');
+
+}).call(this);
+:ET

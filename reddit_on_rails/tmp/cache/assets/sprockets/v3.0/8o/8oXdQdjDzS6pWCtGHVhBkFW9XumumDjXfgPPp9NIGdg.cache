@@ -1,0 +1,7 @@
+I"r(function() {
+  $('.edit-comment-button').click(function() {
+    return alert("asdf");
+  });
+
+}).call(this);
+:ET

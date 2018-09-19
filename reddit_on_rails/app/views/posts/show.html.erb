@@ -1,0 +1,25 @@
+<h1> <%= @post.title %> </h1>
+<a href="<%= edit_post_url(@post) %>">Edit Post</a> <br>
+<% if @post.url.nil? || @post.url.length == 0 %>
+  <%= @post.content %>
+<% else %>
+  <a href="<%= @post.url %>"><%= @post.url %></a>
+<% end %>
+
+<h1>Comments</h1>
+
+<form class="" action="<%=post_comments_url(@post)%>" method="post">
+  <%= auth_token %>
+  <label for="">Comment<br>
+    <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+  <input type="submit" name="" value="Add Comment">
+</form>
+
+<ul class="no-list-style">
+  <% @post.comments.where("parent_comment_id is null").each do |comment| %>
+    <li>
+      <%= recurse_comments(comment) %>
+    </li>
+  <% end %>  
+</ul>

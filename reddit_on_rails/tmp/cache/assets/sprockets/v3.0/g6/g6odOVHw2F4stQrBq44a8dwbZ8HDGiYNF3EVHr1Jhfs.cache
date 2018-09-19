@@ -1,0 +1,34 @@
+I"T(function() {
+  var toggle_edit, toggle_reply;
+
+  toggle_edit = true;
+
+  toggle_reply = true;
+
+  $(function() {
+    $('.edit-comment-button'.click(function() {
+      if (toggle_edit) {
+        $('#comment-contents-' + event.target.id).css('display', 'none');
+        $('#edit-comment-form-' + event.target.id).css('display', 'block');
+        return toggle_edit = false;
+      } else {
+        $('#comment-contents-' + event.target.id).css('display', 'block');
+        $('#edit-comment-form-' + event.target.id).css('display', 'none');
+        return toggle_edit = true;
+      }
+    }));
+    return $('.reply-comment-button').click(function() {
+      if (toggle_reply) {
+        $('#reply-comment-form-' + event.target.id).css('display', 'block');
+        $('#reply-comment-button-' + event.target.id).css('display', 'none');
+        return toggle_reply = false;
+      } else {
+        $('#reply-comment-form-' + event.target.id).css('display', 'none');
+        $('#reply-comment-button-' + event.target.id).css('display', 'inline');
+        return toggle_reply = true;
+      }
+    });
+  });
+
+}).call(this);
+:ET

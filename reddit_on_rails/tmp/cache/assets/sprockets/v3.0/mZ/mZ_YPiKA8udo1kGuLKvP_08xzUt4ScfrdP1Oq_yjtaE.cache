@@ -1,0 +1,36 @@
+I"ž(function() {
+  var toggle_edit;
+
+  toggle_edit = true;
+
+  $(function() {
+    var comment_id, toggle_reply;
+    comment_id = event.target.id;
+    $('#edit-comment-button-' + comment_id).click(function() {
+      console.log(comment_id);
+      if (toggle_edit) {
+        $('#comment-contents-' + comment_id).css('display', 'none');
+        $('#edit-comment-form-' + comment_id).css('display', 'block');
+        return toggle_edit = false;
+      } else {
+        $('.comment-contents-' + comment_id).css('display', 'block');
+        $('.edit-comment-form-' + comment_id).css('display', 'none');
+        return toggle_edit = true;
+      }
+    });
+    toggle_reply = true;
+    return $('#reply-comment-button-' + comment_id).click(function() {
+      if (toggle_reply) {
+        $('#reply-comment-form-' + comment_id).css('display', 'block');
+        $('#reply-comment-button-' + comment_id).css('display', 'none');
+        return toggle_reply = false;
+      } else {
+        $('#reply-comment-form-' + comment_id).css('display', 'none');
+        $('#reply-comment-button-' + comment_id).css('display', 'inline');
+        return toggle_reply = true;
+      }
+    });
+  });
+
+}).call(this);
+:ET

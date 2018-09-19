@@ -21,15 +21,8 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
   
-  def require_moderator(sub_id)
-    unless current_user.id == Sub.find_by(id: sub_id).moderator_id
-      flash[:errors] = ["Unauthorized action"]
-      redirect_to subs_url 
-    end
-  end
-  
-  def require_author(post_id)
-    unless current_user.id == Post.find_by(id: post_id).author_id
+  def require_author(user_id)
+    unless current_user.id == user_id
       flash[:errors] = ["Unauthorized action"]
       redirect_to subs_url 
     end

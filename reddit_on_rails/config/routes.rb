@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'posts/edit'
-  get 'subs/new'
-  get 'subs/index'
-  get 'subs/show'
-  get 'subs/edit'
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'users/new'
-  get 'users/create'
+
+  resources :users, only: [:new, :create]
+  resource :session 
+  resources :subs do
+    resources :posts, only: [:new, :create]
+  end
+  resources :posts, except: [:index, :new, :create] do 
+    resources :comments, only: [:create]
+  end 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :comments, except: [:create]
 end

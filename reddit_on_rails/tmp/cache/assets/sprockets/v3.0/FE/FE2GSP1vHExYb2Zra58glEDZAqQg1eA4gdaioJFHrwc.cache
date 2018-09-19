@@ -1,0 +1,9 @@
+I"›(function() {
+  (function() {
+    return '.edit-comment-button'.click(function(e) {
+      return console.log("I'm printed");
+    });
+  });
+
+}).call(this);
+:ET

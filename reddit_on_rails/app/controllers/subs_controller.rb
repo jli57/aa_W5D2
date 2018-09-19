@@ -1,9 +1,9 @@
 class SubsController < ApplicationController
   
-  before_action only: [:edit, :update, :destroy] do 
-    require_moderator(params[:id])
+  before_action only: [:update, :destroy] do 
+    require_author(params[:sub][:moderator_id])
   end 
-  
+
   def new
     @sub = Sub.new
   end
@@ -18,6 +18,7 @@ class SubsController < ApplicationController
 
   def edit
     @sub = Sub.find_by(id: params[:id])
+    require_author(@sub.moderator_id)
   end
   
   def create

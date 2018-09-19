@@ -1,2 +1,8 @@
-<h1>Subs#new</h1>
-<p>Find me in app/views/subs/new.html.erb</p>
+<h1>Create a sub</h1>
+
+<form class="" action="<%= subs_url %>" method="post">
+  <%= render "form", sub: @sub %>
+  <input type="submit" value="Add Sub">
+</form>
+
+<a href="<%= subs_url %>">Back to Index</a>

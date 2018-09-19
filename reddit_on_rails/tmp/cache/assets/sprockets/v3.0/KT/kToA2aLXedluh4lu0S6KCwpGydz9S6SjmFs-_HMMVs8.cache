@@ -1,0 +1,9 @@
+I"³(function() {
+  $(function() {
+    return $('.edit-comment-button').click(function() {
+      return $('.edit-comment-form').css('display', 'block');
+    });
+  });
+
+}).call(this);
+:ET

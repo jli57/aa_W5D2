@@ -1,0 +1,37 @@
+I"I(function() {
+  var toggle_edit;
+
+  toggle_edit = true;
+
+  $(function() {
+    var toggle_reply;
+    $(#edit-comment-${event.target.id}`.edit-comment-button`).click(function() {
+      if (toggle_edit) {
+        $('.comment-contents').css('display', 'none');
+        $('.edit-comment-form').css('display', 'block');
+        return toggle_edit = false;
+      } else {
+        $('.comment-contents').css('display', 'block');
+        $('.edit-comment-form').css('display', 'none');
+        return toggle_edit = true;
+      }
+    });
+    toggle_reply = true;
+    $('.reply-comment-button').click(function() {
+      if (toggle_reply) {
+        $('.reply-comment-form').css('display', 'block');
+        $('.reply-comment-button').css('display', 'none');
+        return toggle_reply = false;
+      } else {
+        $('.reply-comment-form').css('display', 'none');
+        $('.reply-comment-button').css('display', 'inline');
+        return toggle_reply = true;
+      }
+    });
+    return $('.edit-comment-button').click(function() {
+      return console.log(event.target.id);
+    });
+  });
+
+}).call(this);
+:ET
